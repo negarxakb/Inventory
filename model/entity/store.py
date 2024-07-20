@@ -42,7 +42,7 @@ class Store(Base):
     id = property(get_id, set_id)
     product = property(get_product, set_product)
     inventory = property(get_inventory, set_inventory)
-    shelving = property(get_category, set_category)
+    category = property(get_category, set_category)
 
 
 

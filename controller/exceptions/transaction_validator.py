@@ -22,9 +22,9 @@ class TransactionController:
 
     @classmethod
     @exception_handling
-    def remove(cls,id,product_id,type,count,date_time):
-        transaction = Transaction(id,product_id,type,count,date_time)
-        TransactionService.remove(transaction)
+    def remove(cls,id):
+        transaction = TransactionService.remove(id)
+        Logger.info(f"Transaction Removed- {transaction}")
         return True, transaction
 
 
