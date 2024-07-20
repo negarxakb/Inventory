@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, Boolean, String,DateTime, ForeignKey
 from model.entity.base import *
 
 class Transaction(Base):
-    __tablename__ = "person_tbl"
+    __tablename__ = "transaction_tbl"
     _id = Column("id",Integer, primary_key = True,autoincrement=True)
     _product_id = Column("product_id",Integer)
     _type = Column("type",String(5))

@@ -3,7 +3,7 @@ from model.entity.base import Base
 
 
 class Person(Base):
-    __tablename__ = "store_operation_tbl"
+    __tablename__ = "person_tbl"
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
     _buyer_name = Column("buyer_name", String(30))
     _buyer_family = Column("buyer_family", String(30))
@@ -17,12 +17,10 @@ class Person(Base):
         self._national_id = national_id
         self._address = address
 
-    @property
-    def id(self):
+    def get_id(self):
         return self._id
 
-    @id.setter
-    def id(self, id):
+    def set_id(self, id):
         self._id = id
 
     def get_buyer_name(self):
@@ -32,7 +30,7 @@ class Person(Base):
         self._buyer_name = buyer_name
 
     def get_buyer_family(self):
-        return self
+        return self._buyer_family
 
     def set_buyer_family(self, buyer_family):
         self._buyer_family = buyer_family
@@ -49,6 +47,7 @@ class Person(Base):
     def set_address(self, address):
         self._address = address
 
+    id = property(get_id, set_id)
     buyer_name = property(get_buyer_name, set_buyer_name)
     buyer_family = property(get_buyer_family, set_buyer_family)
     national_id = property(get_national_id, set_national_id)
