@@ -55,3 +55,4 @@ class PersonController:
         person = PersonService.find_by_buyer_name(buyer_family)
         Logger.info(f"Person Find  BY  BuyerFamily({buyer_family})")
         return True, person
+

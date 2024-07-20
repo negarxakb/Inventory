@@ -1,5 +1,7 @@
 from sqlalchemy import Column, Integer, Boolean, String,DateTime, ForeignKey
 from model.entity.base import *
+from model.tools.validator import date_time_validator
+
 
 class Transaction(Base):
     __tablename__ = "transaction_tbl"
@@ -10,8 +12,8 @@ class Transaction(Base):
     # _date_time = Column("date_time",Date)
     _date_time = Column("date_time", DateTime, nullable=False)
 
-    def __init__(self,id,product_id,type,count,date_time):
-        self.id = id
+    def __init__(self,product_id,type,count,date_time):
+        self.id = None
         self.product_id =product_id
         self.type = type
         self.count = count
@@ -50,7 +52,7 @@ class Transaction(Base):
         return self._date_time
 
     def set_date_time(self,date_time):
-        self._date_time = date_time
+        self._date_time = date_time_validator(date_time,"Error")
 
 
 
@@ -59,6 +61,7 @@ class Transaction(Base):
     type =property(get_type,set_type)
     count =property(get_count,set_count)
     date_time =property(get_date_time,set_date_time)
+
 
 
 

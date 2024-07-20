@@ -1,5 +1,5 @@
 import re
-from datetime import datetime, date
+import datetime
 
 
 def product_validator(product, message):
@@ -31,15 +31,15 @@ def boolean_validator(bool_value, message):
         raise ValueError(message)
 
 
-def date_validator(date_value, message):
-    if isinstance(date_value, date):
-        return date_value
-    else:
-        raise ValueError(message)
 
 
 def date_time_validator(date_time_value, message):
-    if isinstance(date_time_value, datetime):
-        return date_time_value
+    d = date_time_value.split("/")
+    year = int(d[0])
+    month = int(d[1])
+    day = int(d[2])
+    dd = datetime.datetime(year, month, day)
+    if isinstance(dd, datetime.date):
+        return dd
     else:
         raise ValueError(message)

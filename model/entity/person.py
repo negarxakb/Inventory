@@ -52,3 +52,4 @@ class Person(Base):
     buyer_family = property(get_buyer_family, set_buyer_family)
     national_id = property(get_national_id, set_national_id)
     address = property(get_address, set_address)
+

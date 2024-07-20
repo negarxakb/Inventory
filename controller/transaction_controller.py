@@ -8,6 +8,7 @@ class TransactionController:
     @classmethod
     @exception_handling
     def save(cls,product_id,type,count,date_time):
+        print("1",date_time)
         transaction = Transaction(product_id,type,count,date_time)
         TransactionService.save(transaction)
         return True, transaction
@@ -58,6 +59,7 @@ class TransactionController:
         transaction = TransactionService.find_by_count(count)
         Logger.info(f"Transaction Find  BY  Count({count})")
         return True,transaction
+
 
 
 

@@ -11,6 +11,7 @@ class TransactionService:
         return transaction
 
 
+
     @staticmethod
     def edit(transaction):
         transaction_da = DataAccess(Transaction)
@@ -45,6 +46,7 @@ class TransactionService:
         transaction_da = DataAccess(Transaction)
         transaction_da.save(transaction)
         return transaction
+
 
 
 

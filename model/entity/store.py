@@ -43,3 +43,4 @@ class Store(Base):
     product = property(get_product, set_product)
     inventory = property(get_inventory, set_inventory)
     category = property(get_category, set_category)
+
