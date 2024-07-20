@@ -33,20 +33,20 @@ class Product(Base):
 
 
     def get_brand(self):
-        return self
+        return self._brand
 
     def set_brand(self,brand):
         self._brand = brand
 
 
     def get_price(self):
-        return self
+        return self._price
 
     def set_price(self,price):
         self._price = price
 
     def get_description(self):
-        return self
+        return self._description
 
     def set_description(self,description):
         self._description = description
