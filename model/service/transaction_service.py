@@ -1,59 +1,58 @@
-from controller.exception.exception import TransactionNotFoundError
-from model.da.da import *
+from controller.exceptions.exception import TransactionNotFoundError
+from model.da.da import DataAccess
 from model.entity.transaction import Transaction
 
-class LessonService:
-    @staticmethod
-    def save(lesson):
-        lesson_da = DataAccess(Transaction)
-        lesson_da.save(lesson)
-        return lesson
+class TransactionService:
 
     @staticmethod
-    def edit(lesson):
-        lesson_da = DataAccess(lesson)
-        if lesson_da.find_by_id(lesson.id):
-            lesson_da.edit(lesson)
-            return lesson
+    def save(transaction):
+        transaction_da = DataAccess(Transaction)
+        transaction_da.save(transaction)
+        return transaction
+
+
+    @staticmethod
+    def edit(transaction):
+        transaction_da = DataAccess(Transaction)
+        if transaction_da.find_by_id(transaction.id):
+            transaction_da.edit(transaction)
+            return transaction
         else:
-            raise TransactionNotFoundError()
+            raise TransactionNotFoundError
 
     @staticmethod
     def remove(id):
-        lesson_da = DataAccess(Lesson)
-        if lesson_da.find_by_id(id):
-            return lesson_da.remove(id)
+        transaction_da = DataAccess(Transaction)
+        if transaction_da.find_by_id(id):
+            return transaction_da.remove(id)
         else:
-            raise TransactionNotFoundError()
+            raise TransactionNotFoundError
 
     @staticmethod
-    def find_all():
-        lesson_da = DataAccess(Lesson)
-        return lesson_da.find_all()
+    def date_range(start_date, end_date):
+        transaction_da = DataAccess(Transaction)
+        return transaction_da.find_by_date_range(start_date, end_date)
 
     @staticmethod
     def find_by_id(id):
-        lesson_da = DataAccess(Lesson)
-        return lesson_da.find_by_id(id)
+        transaction_da = DataAccess(Transaction)
+        return transaction_da.find_by_id(id)
 
-    # todo : group, department, title, code
 
-    @staticmethod
-    def find_by_lesson_group(lesson_group):
-        lesson_da = DataAccess(Lesson)
-        return lesson_da.find_by(Lesson.lesson_group == lesson_group)
 
     @staticmethod
-    def find_by_department(department):
-        lesson_da = DataAccess(Lesson)
-        return lesson_da.find_by(Lesson.department == department)
+    def type(transaction):
+        transaction_da = DataAccess(Transaction)
+        transaction_da.save(transaction)
+        return transaction
 
-    @staticmethod
-    def find_by_title(title):
-        lesson_da = DataAccess(Lesson)
-        return lesson_da.find_by(Lesson.title == title)
 
-    @staticmethod
-    def find_by_code(code):
-        lesson_da = DataAccess(Lesson)
-        return lesson_da.find_by(Lesson.code == code)
+
+
+
+
+
+
+
+
+

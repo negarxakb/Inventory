@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Boolean, String,Date
+from sqlalchemy import Column, Integer, Boolean, String,DateTime, ForeignKey
 from model.entity.base import *
 
 class Transaction(Base):
@@ -7,7 +7,8 @@ class Transaction(Base):
     _product_id = Column("product_id",Integer)
     _type = Column("type",String(5))
     _count = Column("count",Integer)
-    _date_time = Column("date_time",Date)
+    # _date_time = Column("date_time",Date)
+    _date_time = Column("date_time", DateTime, nullable=False)
 
     def __init__(self,id,product_id,type,count,date_time):
         self.id = id
