@@ -10,7 +10,7 @@ class Product(Base):
     _description = Column("description",String(100))
 
 
-    def __init__(self,id,name,brand,price,description):
+    def __init__(self,name,brand,price,description):
         self._id = None
         self._name = name
         self._brand = brand
