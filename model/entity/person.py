@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, Boolean, String
 from model.entity.base import *
 
-class StoreOperation(Base):
+class Person(Base):
     __tablename__ = "store_operation_tbl"
     _id = Column("id", Integer, primary_key=True,autoincrement=True)
     _buyer_name = Column("buyer_name",String(30))
