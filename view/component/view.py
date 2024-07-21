@@ -1,33 +1,35 @@
 from model.da.da import DataAccess
-from component.label_text import TextWithLabel
+from view.component.lable import TextWithLabel
 from view.component.table import Table
-from model.entity.lesson import Lesson
+from model.entity.store import Store
 from model.entity.person import Person
+from model.entity.product import Product
+from model.entity.transaction import Transaction
 from tkinter import *
 
-class PersonLessonView:
+class PersonstoreView:
     def person_table_click(self,row):
         print (row)
 
-    def lesson_table_click(self, row):
+    def store_table_click(self, row):
         print(row)
 
     def __init__(self):
         self.Person_da = DataAccess(Person)
-        self.lesson_da = DataAccess(Lesson)
+        self.store_da = DataAccess(Store)
         self.win = Tk()
-        self.title("Person Lesson View")
+        self.title("Person Store View")
         self.win.geometry("500x500")
 
         person_table = Table(self.win,
-                             ["Id", "Name", "Family", "NationalId", "Status"],
+                             ["Id", "Name", "Family", "NationalId", "address"],
                              [60,80,80,80,50], 20, 20 ,
                              self.person_table_click)
 
         self.person_table.refresh_table(self.person_da.find_all())
-        lesson_table = Table(self.win,
-                             ["Id","Lesson_group","Department","Title", "Code", "Teacher","Status"],
-                             [60,80,80,80,50,60,60],300,20 ,
-                             self.lesson_table_click)
+        store_table = Table(self.win,
+                             ["Id","product","Inventory","category"],
+                             [60,80,80,80],300,20 ,
+                             self.store_table_click)
 
         self.win.mainloop()
