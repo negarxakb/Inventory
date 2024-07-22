@@ -1,5 +1,4 @@
-from sqlalchemy import Column, Integer, Boolean, String
-from model.entity.base import Base
+from model.entity import *
 
 
 class Person(Base):

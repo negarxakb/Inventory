@@ -1,21 +1,18 @@
-from model.entity.store import Store
-from model.service.store_service import StoreService
-from model.tools.decorators import exception_handling
-from model.tools.logger import Logger
-
+from controller import *
 
 class StoreController:
     @classmethod
     @exception_handling
-    def save(cls, product,inventory,category):
-        store = Store(product,inventory,category)
+    def save(cls, product,product_id):
+        store = Store(product)
+        store.Product_id = product_id
         StoreService.save(store)
         return True, store
 
     @classmethod
     @exception_handling
-    def edit(cls, product,inventory,category):
-        store = Store(id,product,inventory,category)
+    def edit(cls, product):
+        store = Store(id,product)
         StoreService.edit(store)
         return True, store
 

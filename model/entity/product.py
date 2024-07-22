@@ -1,5 +1,4 @@
-from sqlalchemy import Column, Integer, Boolean, String
-from model.entity.base import *
+from model.entity import *
 
 class Product(Base):
     __tablename__ = "product_tbl"

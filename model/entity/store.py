@@ -1,8 +1,7 @@
-from sqlalchemy import Column, Integer, Boolean, String, ForeignKey
-from sqlalchemy.orm import relationship
+from model.entity import *
 
-from model.entity.base import Base
-from model.entity.product import Product
+
+
 
 
 class Store(Base):
@@ -13,39 +12,38 @@ class Store(Base):
     _product_id = Column("product_id", Integer, ForeignKey("product_tbl.id"))
     product = relationship("Product")
 
-    #
-    # def __init__(self, product, inventory, category):
-    #     self._id = None
-    #     self._product = product
-    #     self._inventory = inventory
-    #     self._category = category
-    #
-    # def get_id(self):
-    #     return self._id
-    #
-    # def set_id(self, id):
-    #     self._id = id
-    #
-    # def get_product(self):
-    #     return self._product
-    #
-    # def set_product(self, product):
-    #     self._product = product
-    #
-    # def get_inventory(self):
-    #     return self._inventory
-    #
-    # def set_inventory(self, inventory):
-    #     self._inventory = inventory
-    #
+
+    def __init__(self, count):
+         self._id = None
+         self._count = count
+
+
+    def get_id(self):
+        return self._id
+
+    def set_id(self, id):
+         self._id = id
+
+    def get_count(self):
+         return self._count
+
+    def set_count(self, count):
+         self._count = count
+
+    def get_product_id(self):
+         return self._product_id
+
+    def set_product_id(self,product_id ):
+         self._product_id = product_id
+
     # def get_category(self):
     #     return self._category
     #
     # def set_category(self, category):
     #     self._category = category
     #
-    # id = property(get_id, set_id)
-    # product = property(get_product, set_product)
-    # inventory = property(get_inventory, set_inventory)
+    id= property(get_id, set_id)
+    count= property(get_count, set_count)
+    Product_id= property(get_product_id, set_product_id)
     # category = property(get_category, set_category)
     #

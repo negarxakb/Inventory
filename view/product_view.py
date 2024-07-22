@@ -4,7 +4,7 @@ from tkinter import *
 import tkinter.messagebox as msg
 import tkinter.ttk as ttk
 
-from controller.product_controller import ProductController
+from controller.product_controller import *
 from view.component.lable_text import TextWithLabel
 
 
@@ -16,7 +16,7 @@ class ProductView:
                 self.table.insert("", END, values=(product.name, product.brand, product.price, product.description))
 
     def save_click(self):
-        status, result = ProductController.save_product(self.name.get(), self.brand.get(), self.price.get(), self.description.get()))
+        status, result = ProductController.save(self.name.get(), self.brand.get(), self.price.get(), self.description.get())
         if status:
             msg.showinfo("product saved!", result)
             self.reset_form()

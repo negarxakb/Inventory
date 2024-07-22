@@ -1,5 +1,5 @@
 from model.da.da import DataAccess
-from view.component.lable import TextWithLabel
+from view.component.lable_text import TextWithLabel
 from view.component.table import Table
 from model.entity.store import Store
 from model.entity.person import Person

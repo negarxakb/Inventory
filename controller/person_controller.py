@@ -1,7 +1,6 @@
-from model.entity.person import Person
-from model.service.person_service import PersonService
-from model.tools.decorators import exception_handling
-from model.tools.logger import Logger
+from controller import *
+
+
 
 
 class PersonController:
