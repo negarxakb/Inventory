@@ -1,7 +1,7 @@
 from model.entity.product import Product
 from model.service.product_service import ProductService
 from model.tools.decorators import exception_handling
-from model.tools.logger import Loggerfr
+from model.tools.logger import Logger
 
 class ProductController:
 

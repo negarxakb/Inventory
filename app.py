@@ -1,9 +1,11 @@
 from view import *
+from view.store_view import StoreView
+
 print("App started")
 
 
-#
-# ui = BankView()
-# ui.show()
-#
-# print("App ended")
+
+ui = StoreView()
+ui.show()
+
+print("App ended")

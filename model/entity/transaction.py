@@ -54,7 +54,7 @@ class Transaction(Base):
          return self._transaction_date_time
 
     def set_transaction_date_time(self,date_time):
-         self._transaction_date_time= date_time_validator(date_time,"Error")
+         self._transaction_date_time= date_time
     #
     #
     #

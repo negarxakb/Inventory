@@ -34,12 +34,7 @@ def boolean_validator(bool_value, message):
 
 
 def date_time_validator(date_time_value, message):
-    d = date_time_value.split("/")
-    year = int(d[0])
-    month = int(d[1])
-    day = int(d[2])
-    dd = datetime.datetime(year, month, day)
-    if isinstance(dd, datetime.date):
-        return dd
+    if isinstance(date_time_value, datetime.date):
+        return date_time_value
     else:
         raise ValueError(message)
