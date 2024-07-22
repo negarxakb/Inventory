@@ -45,6 +45,12 @@ class StoreService:
         store_da = DataAccess(Store)
         return store_da.find_by(cateory)
 
+    @staticmethod
+    def find_all():
+        Store_da = DataAccess(Store)
+        return Store_da.find_all()
+
+
 
 
 

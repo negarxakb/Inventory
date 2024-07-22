@@ -1,11 +1,11 @@
 from view import *
-from view.store_view import StoreView
+from view.person_view import PersonView
 
 print("App started")
 
 
 
-ui = StoreView()
+ui = PersonView()
 ui.show()
 
 print("App ended")

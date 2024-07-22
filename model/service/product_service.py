@@ -44,6 +44,11 @@ class ProductService:
         product_da = DataAccess(Product)
         return product_da.find_by(category)
 
+    @staticmethod
+    def find_all():
+        Product_da = DataAccess(Product)
+        return Product_da.find_all()
+
 
 
 

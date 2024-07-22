@@ -42,6 +42,12 @@ class PersonService:
         person_da = DataAccess(Person)
         return person_da.find_by(family)
 
+    @staticmethod
+    def find_all():
+        Person_da = DataAccess(Person)
+        return Person_da.find_all()
+
+
 
 
 
