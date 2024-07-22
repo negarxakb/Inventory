@@ -13,8 +13,9 @@ class Store(Base):
     product = relationship("Product")
 
 
-    def __init__(self, count):
+    def __init__(self,product, count):
          self._id = None
+         self.product = product
          self._count = count
 
 
@@ -44,6 +45,6 @@ class Store(Base):
     #
     id= property(get_id, set_id)
     count= property(get_count, set_count)
-    Product_id= property(get_product_id, set_product_id)
+    product_id= property(get_product_id, set_product_id)
     # category = property(get_category, set_category)
     #
