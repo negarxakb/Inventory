@@ -7,9 +7,8 @@ from model.tools.logger import Logger
 class TransactionController:
     @classmethod
     @exception_handling
-    def save(cls,product_id,type,count,date_time):
-        print("1",date_time)
-        transaction = Transaction(product_id,type,count,date_time)
+    def save(cls,type,count,date_time):
+        transaction = Transaction(type,count,date_time)
         TransactionService.save(transaction)
         return True, transaction
 

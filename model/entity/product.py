@@ -9,7 +9,6 @@ class Product(Base):
     _price = Column("price",Integer)
     _description = Column("description",String(100))
 
-
     def __init__(self,name,brand,price,description):
         self._id = None
         self._name = name
