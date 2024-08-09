@@ -12,8 +12,8 @@ class PersonController:
     @exception_handling
     def save(cls, buyer_name, buyer_family, national_id, address):
         person = Person(buyer_name, buyer_family, national_id, address)
-        print(person)
         PersonService.save(person)
+        Logger.info(f"Person saved{person}")
         return True, person
 
     @classmethod
