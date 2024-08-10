@@ -3,8 +3,8 @@ from controller import *
 class StoreController:
     @classmethod
     @exception_handling
-    def save(cls, product,count):
-        store = Store(product,count)
+    def save(cls, product,inventory):
+        store = Store(product,inventory)
         StoreService.save(store)
         return True, store
 

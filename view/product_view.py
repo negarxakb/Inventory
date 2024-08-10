@@ -19,13 +19,13 @@ class ProductView:
 
     def save_click(self):
         print(self.name.get_variable())
-        status, result = ProductController.save(self.name.get_variable(), self.brand.get_variable(), self.price.get_variable(), self.description.get_variable())
+        status, result = ProductController.save(self.name._variable.get(), self.brand._variable.get(), self.price._variable.get(), self.description._variable.get())
         if status:
             entered_data=(
-                f"Name: {self.name.get_variable()}\n"
-                f"Brand: {self.brand.get_variable()}\n"
-                f"Price: {self.price.get_variable()}\n"
-                f"Description: {self.description.get_variable()}"
+                f"Name: {self.name._variable.get()}\n"
+                f"Brand: {self.brand._variable.get()}\n"
+                f"Price: {self.price._variable.get()}\n"
+                f"Description: {self.description._variable.get()}"
             )
 
             msg.showinfo("Save", f"Account saved? \n {entered_data}")
@@ -35,12 +35,12 @@ class ProductView:
 
 
     def edit_product(self):
-        result = ProductController.edit(self.name.get_variable(),self.brand.get_variable(),self.description.get_variable())
+        result = ProductController.edit(self.name._variable.get(),self.brand._variable.get(),self.description._variable.get())
         if result:
             entered_data = (
-                f"Name: {self.name.get_variable()}\n"
-                f"Brand: {self.brand.get_variable()}\n"
-                f"Description: {self.description.get_variable()}"
+                f"Name: {self.name._variable.get()}\n"
+                f"Brand: {self.brand._variable.get()}\n"
+                f"Description: {self.description._variable.get()}"
             )
             msg.showinfo("Edit", f"Name {entered_data} edited? \n")
             self.reset_form()
@@ -48,7 +48,7 @@ class ProductView:
             msg.showerror("Error", result)
 
     def remove_product(self):
-        get_id = self.remove_row.get_variable()
+        get_id = self.remove_row._variable.get()
         find_id = ProductController.find_by_id(get_id)
         if find_id:
             msg.showinfo("Remove", f"ProductId {get_id} delete?")

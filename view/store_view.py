@@ -70,7 +70,7 @@ class StoreView:
 
         self.inventory = TextWithLabel(self.win, "invetory: ", 20, 60)
 
-        self.category = TextWithLabel(self.win, "national id: ", 20, 100)
+        self.category = TextWithLabel(self.win, "category: ", 20, 100)
 
 
         self.remove_row = TextWithLabel(self.win, "Remove Account By Id: ", 300, 300, distance=150)

@@ -19,14 +19,14 @@ class TransactionView:
 
 
     def save_click(self):
-        status, result = TransactionController.save(self.id.get_variable(),self.product_id.get_variable(),self.type.get_variable(),self.count.get_variable(),self.transaction_date_time.get_variable())
+        status, result = TransactionController.save(self.id._variable.get(),self.product_id._variable.get(),self.type._variable.get(),self.count._variable.get(),self.transaction_date_time._variable.get())
         if status:
             entered_date = (
-                f"Id: {self.id.get_variable()}\n"
-                f"Product_Id: {self.product_id.get_variable()}\n"
-                f"Type: {self.type.get_variable()}\n"
-                f"Count: {self.count.get_variable()}\n"
-                f"Transaction_date_time: {self.transaction_date_time.get_variable()}"
+                f"Id: {self.id._variable.get()}\n"
+                f"Product_Id: {self.product_id._variable.get()}\n"
+                f"Type: {self.type._variable.get()}\n"
+                f"Count: {self.count._variable.get()}\n"
+                f"Transaction_date_time: {self.transaction_date_time._variable.get()}"
             )
             msg.showinfo("Save", f"transaction saved? \n {entered_date}")
             self.reset_form()
@@ -36,12 +36,12 @@ class TransactionView:
 
 
     def edit_transaction(self):
-        result=TransactionController.edit(self.id.get_variable(), self.type.get_variable(), self.count.get_variable())
+        result=TransactionController.edit(self.id._variable.get(), self.type._variable.get(), self.count._variable.get())
         if result:
             entered_date = (
-                    f"Id: {self.id.get_variable()}\n"
-                    f"Type: {self.type.get_variable()}\n"
-                    f"Count: {self.count.get_variable()}"
+                    f"Id: {self.id._variable.get()}\n"
+                    f"Type: {self.type._variable.get()}\n"
+                    f"Count: {self.count._variable.get()}"
             )
             msg.showinfo("edit", f"transaction edited? \n {entered_date}")
             self.reset_form()
@@ -49,7 +49,7 @@ class TransactionView:
             msg.showerror("Error", result)
 
     def remove_transaction(self):
-        get_id = self.remove_row.get_variable()
+        get_id = self.remove_row._variable.get()
         find_id = TransactionController.find_by_id(get_id)
         if find_id:
             msg.showinfo("Remove", f"TransactionId {get_id} delete?")
@@ -60,7 +60,7 @@ class TransactionView:
 
 
     def find_product_by_id(self):
-        get_id = self.find_product.get_variable()
+        get_id = self.find_product._variable.get()
         find_id = ProductController.find_by_id(get_id)
         if find_id:
             msg.showinfo("Find", f"ProductId {get_id} delete?")
@@ -69,7 +69,7 @@ class TransactionView:
 
 
     def find_product_by_brand(self):
-        get_brand=self.find_product.get_variable()
+        get_brand=self.find_product._variable.get()
         find_brand = ProductController.find_by_brand
         if find_brand:
             msg.showinfo("Find", f"ProductId {get_brand} delete?")
