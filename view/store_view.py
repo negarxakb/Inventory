@@ -73,13 +73,13 @@ class StoreView:
         self.category = TextWithLabel(self.win, "national id: ", 20, 100)
 
 
-        self.remove_row = TextWithLabel(self.win, "Remove Account By Id: ", 350, 240, distance=150)
+        self.remove_row = TextWithLabel(self.win, "Remove Account By Id: ", 300, 300, distance=150)
 
 
 
-        Button(self.win, text= "save", command=self.save_click).place(x=20 , y=340)
-        Button(self.win, text="Edit", command=self.edit).place(x=100, y=240)
-        Button(self.win, text="Remove", command=self.remove).place(x=700, y=240)
+        Button(self.win, text= "save", command=self.save_click).place(x=300 , y=350)
+        Button(self.win, text="Edit", command=self.edit).place(x=350, y=350)
+        Button(self.win, text="Remove", command=self.remove).place(x=400, y=350)
 
         self.table = ttk.Treeview(self.win, columns=(1,2,3), show="headings")
 

@@ -72,14 +72,14 @@ class PersonView:
         self.address = TextWithLabel(self.win, "address: ", 20, 140)
 
 
-        self.remove_row = TextWithLabel(self.win, "ID For Remove:", 360, 260)
+        self.remove_row = TextWithLabel(self.win, "ID For Remove :", 320, 280,distance=100)
 
 
-        Button(self.win, text="save", command=self.save_click).place(x=20, y=340)
+        Button(self.win, text="save", command=self.save_click).place(x=320, y=340)
 
-        Button(self.win, text="edit", command=self.edit_person).place(x=100, y=340)
+        Button(self.win, text="edit", command=self.edit_person).place(x=380, y=340)
 
-        Button(self.win, text="remove", command=self.remove_person).place(x=660, y=260)
+        Button(self.win, text="remove", command=self.remove_person).place(x=440, y=340)
 
 
         self.table = ttk.Treeview(self.win, columns=(1,2,3,4), show="headings")
