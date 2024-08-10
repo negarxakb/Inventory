@@ -99,3 +99,4 @@ class StoreView:
         self.reset_form()
 
         self.win.mainloop()
+
