@@ -16,13 +16,13 @@ class PersonView:
                 self.table.insert("", END, values=(person.buyer_name, person.buyer_family, person.national_id, person.address))
 
     def save_click(self):
-        status, result = PersonController.save(self.buyer_name.get(), self.buyer_family.get(), self.national_id.get(),self.address.get())
+        status, result = PersonController.save(self.buyer_name.get_variable(), self.buyer_family.get_variable(), self.national_id.get_variable(),self.address.get_variable())
         if status:
             entered_data=(
-                f"Buyer_Name: {self.buyer_name.get()}\n"
-                f"Buyer_Family: {self.buyer_family.get()}\n"
-                f"National ID: {self.national_id.get()}\n"
-                f"Address: {self.address.get()}"
+                f"Buyer_Name: {self.buyer_name.get_variable()}\n"
+                f"Buyer_Family: {self.buyer_family.get_variable()}\n"
+                f"National ID: {self.national_id.get_variable()}\n"
+                f"Address: {self.address.get_variable()}"
             )
             msg.showinfo("Save!",f"save Person?\n{entered_data}")
             msg.showinfo("Question", "مشخصات شما سیو شد. برای ساخت حساب کار بری روی دکمه ی create account کلیک کنید.")
@@ -33,14 +33,14 @@ class PersonView:
 
 
     def edit_person(self):
-        result = PersonController.edit(self.buyer_name.get(), self.buyer_family.get(),self.national_id.get(), self.address.get())
+        result = PersonController.edit(self.buyer_name.get_variable(), self.buyer_family.get_variable(),self.national_id.get_variable(), self.address.get_variable())
 
         if result:
             entered_data = (
-                f"Buyer_Name: {self.buyer_name.get()}\n"
-                f"Buyer_Family: {self.buyer_family.get()}\n"
-                f"National ID: {self.national_id.get()}\n"
-                f"Address: {self.address.get()}"
+                f"Buyer_Name: {self.buyer_name.get_variable()}\n"
+                f"Buyer_Family: {self.buyer_family.get_variable()}\n"
+                f"National ID: {self.national_id.get_variable()}\n"
+                f"Address: {self.address.get_variable()}"
 
             )
             msg.showinfo("Edit", f"Edit person? \n {entered_data}")
@@ -49,7 +49,7 @@ class PersonView:
             msg.showerror("Error", result)
 
     def remove_person(self):
-        get_id = self.remove_row.get()
+        get_id = self.remove_row.get_variable()
         find_id = PersonController.find_by_id(get_id)
         if find_id:
             msg.showinfo("Remove", f"PersonId {get_id} delete?")
@@ -101,4 +101,4 @@ class PersonView:
 
         self.reset_form()
 
-        self.win.mainloop()
+        self.win.mainloopget_variable

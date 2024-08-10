@@ -17,12 +17,12 @@ class StoreView:
                 self.table.insert("", END, values=(store.product, store.inventory, store.category))
 
     def save_click(self):
-        status, result = StoreController.save(self.product.get(), self.inventory.get(), self.category.get())
+        status, result = StoreController.save(self.product.get_variable(), self.inventory.get_variable(), self.category.get_variable())
         if status:
             entered_data = (
-                f"product:{self.product.get()}\n"
-                f"inventory:{self.inventory.get()}\n"
-                f"category:{self.category.get()}"
+                f"product:{self.product.get_variable()}\n"
+                f"inventory:{self.inventory.get_variable()}\n"
+                f"category:{self.category.get_variable()}"
             )
             msg.showinfo("store saved!", f"Store saved?\n {entered_data}")
             self.reset_form()
@@ -31,12 +31,12 @@ class StoreView:
 
 
     def edit(self):
-        result = StoreController.edit(self.product.get(),self.inventory.get(),self.category.get())
+        result = StoreController.edit(self.product.get_variable(),self.inventory.get_variable(),self.category.get_variable())
         if result:
             entered_data = (
-                f"product:{self.product.get()}\n"
-                f"inventory:{self.inventory.get()}\n"
-                f"category:{self.category.get()}"
+                f"product:{self.product.get_variable()}\n"
+                f"inventory:{self.inventory.get_variable()}\n"
+                f"category:{self.category.get_variable()}"
             )
 
             msg.showinfo("Edit", f"store {entered_data} edited? \n")
@@ -46,7 +46,7 @@ class StoreView:
 
 
     def remove(self):
-        get_id = self.remove_row.get()
+        get_id = self.remove_row.get_variable()
         find_id = StoreController.find_by_id(get_id)
         if find_id:
             msg.showinfo("Remove", f"StoreId {get_id} delete?")
@@ -56,7 +56,7 @@ class StoreView:
             msg.showerror("Error", f"ID {get_id} not found")
 
 
-     #def find_by_category(self):
+
 
 
 
