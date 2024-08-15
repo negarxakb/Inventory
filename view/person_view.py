@@ -49,14 +49,13 @@ class PersonView:
             msg.showerror("Error", result)
 
     def remove_person(self):
-        get_id = self.remove_row._variable.get()
-        find_id = PersonController.find_by_id(get_id)
-        if find_id:
-            msg.showinfo("Remove", f"PersonId {get_id} delete?")
-            PersonController.remove(get_id)
-            self.reset_form()
-        else:
-            msg.showerror("Error", f"ID {get_id} not found")
+        id = self.remove_row._variable.get()
+        PersonController.remove(id)
+        msg.showinfo("Remove", f"Remove person? \n {id}")
+        self.reset_form()
+
+
+
 
     def show(self):
         self.win = Tk()

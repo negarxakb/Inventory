@@ -3,10 +3,10 @@ from controller import *
 class StoreController:
     @classmethod
     @exception_handling
-    def save(cls, product,inventory):
-        store = Store(product,inventory)
+    def save(cls, product,inventory,product_id):
+        store = Store(product,inventory,product_id)
         StoreService.save(store)
-        return True, store
+        return True, StoreService.save(store)
 
     @classmethod
     @exception_handling
@@ -25,9 +25,9 @@ class StoreController:
     @classmethod
     @exception_handling
     def find_all(cls, ):
-        store_list = StoreService.find_all()
-        Logger.info(f"Store Find  BY  Id({id})")
-        return True, store_list
+        # store_list = StoreService.find_all()
+         #Logger.info(f"Store Find  BY  Id({id})")
+        return True, StoreService.find_all()
 
     @classmethod
     @exception_handling

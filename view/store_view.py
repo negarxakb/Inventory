@@ -14,15 +14,15 @@ class StoreView:
         status, store_list = StoreController.find_all()
         if status:
             for store in store_list:
-                self.table.insert("", END, values=(store.product, store.inventory, store.category))
+                self.table.insert("", END, values=(store.product, store.inventory, store.product_id))
 
     def save_click(self):
-        status, result = StoreController.save(self.product.get_variable(), self.inventory.get_variable(), self.category.get_variable())
+        status, result = StoreController.save(self.product.get_variable(), self.inventory.get_variable(), self.product_id.get_variable())
         if status:
             entered_data = (
                 f"product:{self.product.get_variable()}\n"
                 f"inventory:{self.inventory.get_variable()}\n"
-                f"category:{self.category.get_variable()}"
+                f"product_id:{self.product_id.get_variable()}"
             )
             msg.showinfo("store saved!", f"Store saved?\n {entered_data}")
             self.reset_form()
@@ -31,12 +31,12 @@ class StoreView:
 
 
     def edit(self):
-        result = StoreController.edit(self.product.get_variable(),self.inventory.get_variable(),self.category.get_variable())
+        result = StoreController.edit(self.product.get_variable(),self.inventory.get_variable(),self.product_id.get_variable())
         if result:
             entered_data = (
                 f"product:{self.product.get_variable()}\n"
                 f"inventory:{self.inventory.get_variable()}\n"
-                f"category:{self.category.get_variable()}"
+                f"category:{self.product_id.get_variable()}"
             )
 
             msg.showinfo("Edit", f"store {entered_data} edited? \n")
@@ -46,19 +46,10 @@ class StoreView:
 
 
     def remove(self):
-        get_id = self.remove_row.get_variable()
-        find_id = StoreController.find_by_id(get_id)
-        if find_id:
-            msg.showinfo("Remove", f"StoreId {get_id} delete?")
-            StoreController.remove(get_id)
-            self.reset_form()
-        else:
-            msg.showerror("Error", f"ID {get_id} not found")
-
-
-
-
-
+        id = self.remove_row.get_variable()
+        StoreController.remove(id)
+        msg.showinfo("Removed", f"Store removed? {id}")
+        self.reset_form()
 
 
     def show(self):
@@ -70,7 +61,7 @@ class StoreView:
 
         self.inventory = TextWithLabel(self.win, "invetory: ", 20, 60)
 
-        self.category = TextWithLabel(self.win, "category: ", 20, 100)
+        self.product_id = TextWithLabel(self.win, "product_id: ", 20, 100)
 
 
         self.remove_row = TextWithLabel(self.win, "Remove Account By Id: ", 300, 300, distance=150)
@@ -91,7 +82,7 @@ class StoreView:
 
         self.table.heading(1, text="product")
         self.table.heading(2, text="inventory")
-        self.table.heading(3, text="category")
+        self.table.heading(3, text="product_id")
 
 
         self.table.place(x=320,y=20)

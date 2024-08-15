@@ -48,14 +48,11 @@ class ProductView:
             msg.showerror("Error", result)
 
     def remove_product(self):
-        get_id = self.remove_row._variable.get()
-        find_id = ProductController.find_by_id(get_id)
-        if find_id:
-            msg.showinfo("Remove", f"ProductId {get_id} delete?")
-            ProductController.remove(get_id)
-            self.reset_form()
-        else:
-            msg.showerror("Error", f"ID {get_id} not found")
+        id = self.remove_row._variable.get()
+        ProductController.remove(id)
+        msg.showinfo("Remove", f"Product {id} removed? \n")
+        self.reset_form()
+
 
     def show(self):
         self.win = Tk()

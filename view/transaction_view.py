@@ -49,14 +49,10 @@ class TransactionView:
             msg.showerror("Error", result)
 
     def remove_transaction(self):
-        get_id = self.remove_row._variable.get()
-        find_id = TransactionController.find_by_id(get_id)
-        if find_id:
-            msg.showinfo("Remove", f"TransactionId {get_id} delete?")
-            TransactionController.remove(get_id)
-            self.reset_form()
-        else:
-            msg.showerror("Error", f"ID {get_id} not found")
+        id = self.remove_row._variable.get()
+        TransactionController.remove(id)
+        msg.showinfo("remove", f"transaction removed? \n {id}")
+        self.reset_form()
 
 
     def find_product_by_id(self):

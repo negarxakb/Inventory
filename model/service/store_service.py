@@ -13,7 +13,7 @@ class StoreService:
 
 
     @staticmethod
-    def edit(store):
+    def edit(cls,store):
         store_da = DataAccess(Store)
         if store_da.find_by_id(store.id):
             store_da.edit(store)
