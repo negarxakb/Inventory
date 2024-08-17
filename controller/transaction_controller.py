@@ -5,8 +5,8 @@ from controller import *
 class TransactionController:
     @classmethod
     @exception_handling
-    def save(cls,type,count,date_time):
-        transaction = Transaction(type,count,date_time)
+    def save(cls,type,count,transaction_date_time):
+        transaction = Transaction(type,count,transaction_date_time)
         TransactionService.save(transaction)
         return True, transaction
 
