@@ -34,10 +34,11 @@ class TransactionView:
 
 
     def edit_transaction(self):
-        result=TransactionController.edit(self.id._variable.get(), self.type._variable.get(), self.count._variable.get())
+        result=TransactionController.edit(self.id._variable.get(),self.product_id._variable.get(), self.type._variable.get(), self.count._variable.get())
         if result:
             entered_date = (
                     f"Id: {self.id._variable.get()}\n"
+                    f"Product_id: {self.product_id._variable.get()}\n"
                     f"Type: {self.type._variable.get()}\n"
                     f"Count: {self.count._variable.get()}"
             )

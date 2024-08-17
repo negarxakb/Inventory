@@ -12,8 +12,8 @@ class TransactionController:
 
     @classmethod
     @exception_handling
-    def edit(cls,id,product_id,type,count,date_time):
-        transaction = Transaction(id,product_id,type,count,date_time)
+    def edit(cls,id,product_id,type,count):
+        transaction = Transaction(id,product_id,type,count)
         TransactionService.edit(transaction)
         return True, transaction
 
