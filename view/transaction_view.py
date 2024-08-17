@@ -12,18 +12,16 @@ from view.component.lable_text import TextWithLabel
 class TransactionView:
     def reset_form(self):
         self.table.delete(*self.table.get_children())
-        status, transaction_list=TransactionController.find_all
+        status, transaction_list = TransactionController.find_all()
         if status:
             for transaction in transaction_list:
-                self.table.insert("",END,values=(transaction.id,transaction.product_id,transaction.type,transaction.count,transaction.transaction_date_time))
+                self.table.insert("",END,values=(transaction.id,transaction.type,transaction.count,transaction.transaction_date_time))
 
 
     def save_click(self):
-        status, result = TransactionController.save(self.id._variable.get(),self.product_id._variable.get(),self.type._variable.get(),self.count._variable.get(),self.transaction_date_time._variable.get())
+        status, result = TransactionController.save(self.type._variable.get(),self.count._variable.get(),self.transaction_date_time._variable.get())
         if status:
             entered_date = (
-                f"Id: {self.id._variable.get()}\n"
-                f"Product_Id: {self.product_id._variable.get()}\n"
                 f"Type: {self.type._variable.get()}\n"
                 f"Count: {self.count._variable.get()}\n"
                 f"Transaction_date_time: {self.transaction_date_time._variable.get()}"
@@ -126,37 +124,4 @@ class TransactionView:
         self.reset_form()
 
         self.win.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

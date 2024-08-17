@@ -47,6 +47,11 @@ class TransactionService:
         transaction_da.save(transaction)
         return transaction
 
+    @staticmethod
+    def find_all():
+        Transaction_da = DataAccess(Transaction)
+        return Transaction_da.find_all()
+
 
 
 

@@ -50,12 +50,8 @@ class TransactionController:
         return True,transaction
 
 
-    @classmethod
-    @exception_handling
-    def find_by_count(cls,count):
-        transaction = TransactionService.find_by_count(count)
-        Logger.info(f"Transaction Find  BY  Count({count})")
-        return True,transaction
+
+
 
 
 

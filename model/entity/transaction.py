@@ -20,6 +20,7 @@ class Transaction(Base):
         self.type = type
         self.count = count
         self.transaction_date_time = transaction_date_time
+        self.person_id = None
 
 
     def get_id(self):
