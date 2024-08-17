@@ -24,7 +24,7 @@ class StoreController:
 
     @classmethod
     @exception_handling
-    def find_all(cls, ):
+    def find_all(cls):
         # store_list = StoreService.find_all()
          #Logger.info(f"Store Find  BY  Id({id})")
         return True, StoreService.find_all()
@@ -33,7 +33,7 @@ class StoreController:
     @exception_handling
     def find_by_id(cls, id):
         store = StoreService.find_by_id(id)
-        Logger.info(f"Store Find  BY  Id({id})")
+        Logger.info(f"Store Find BY Id({id})")
         return True, store
 
 

@@ -3,7 +3,7 @@ from model.entity import *
 class Transaction(Base):
     __tablename__ = "transaction_tbl"
     _id = Column("id",Integer, primary_key = True,autoincrement=True)
-    _type = Column("type",String(5))
+    _type = Column("type",String(6))
     _count = Column("count",Integer)
     _transaction_date_time = Column("transaction_date_time", DateTime, nullable=False)
 
