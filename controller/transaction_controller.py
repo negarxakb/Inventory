@@ -5,15 +5,15 @@ from controller import *
 class TransactionController:
     @classmethod
     @exception_handling
-    def save(cls,type,count,transaction_date_time):
-        transaction = Transaction(type,count,transaction_date_time)
+    def save(cls,transaction_type,count,transaction_date_time):
+        transaction = Transaction(transaction_type,count,transaction_date_time)
         TransactionService.save(transaction)
         return True, transaction
 
     @classmethod
     @exception_handling
-    def edit(cls,id,product_id,type,count):
-        transaction = Transaction(id,product_id,type,count)
+    def edit(cls,id,product_id,transaction_type,count):
+        transaction = Transaction(id,product_id,transaction_type,count)
         TransactionService.edit(transaction)
         return True, transaction
 

@@ -3,7 +3,7 @@ from model.entity import *
 class Transaction(Base):
     __tablename__ = "transaction_tbl"
     _id = Column("id",Integer, primary_key = True,autoincrement=True)
-    _type = Column("type",String(6))
+    _transaction_type = Column("transaction_type",String(6))
     _count = Column("count",Integer)
     _transaction_date_time = Column("transaction_date_time", DateTime, nullable=False)
 
@@ -14,10 +14,10 @@ class Transaction(Base):
     person = relationship("Person")
 
 
-    def __init__(self,type,count,transaction_date_time):
+    def __init__(self,transaction_type,count,transaction_date_time):
         self.id = None
         self.product_id =None
-        self.type = type
+        self.transaction_type =transaction_type
         self.count = count
         self.transaction_date_time = transaction_date_time
         self.person_id = None
@@ -37,11 +37,11 @@ class Transaction(Base):
          self._product_id = product_id
 
 
-    def get_type(self):
-         return self._type
+    def get_transaction_type(self):
+         return self._transaction_type
 
-    def set_type(self,type):
-         self._type = type
+    def set_transaction_type(self,transaction_type):
+         self._transaction_type =transaction_type
 
 
     def get_count(self):
@@ -56,17 +56,12 @@ class Transaction(Base):
 
     def set_transaction_date_time(self,date_time):
          self._transaction_date_time= date_time
-    #
-    #
-    #
+
+
+
     id =property(get_id,set_id)
     product_id =property(get_product_id,set_product_id)
-    type =property(get_type,set_type)
+    transaction_type =property(get_transaction_type,set_transaction_type)
     count =property(get_count,set_count)
     transaction_date_time=property(get_transaction_date_time,set_transaction_date_time)
-    #
-    #
-    #
-    #
-    #
-    #
+
