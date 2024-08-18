@@ -57,7 +57,7 @@ class ProductView:
     def show(self):
         self.win = Tk()
         self.win.title("product View")
-        self.win.geometry("1100x500")
+        self.win.geometry("740x310")
 
         self.name = TextWithLabel(self.win, "name: ", 20, 40)
 
@@ -67,16 +67,16 @@ class ProductView:
 
         self.description = TextWithLabel(self.win, "discription: ", 20, 160)
 
-        self.remove_row = TextWithLabel(self.win, "Remove Product By Id: ", 320, 280, distance=150)
+        self.remove_row = TextWithLabel(self.win, "Remove Product By Id: ", 20, 270, distance=150)
 
 
 
 
-        Button(self.win, text="save", command=self.save_click).place(x=500, y=330)
+        Button(self.win, text="save", command=self.save_click).place(x=20, y=220)
 
-        Button(self.win, text="Edit", command=self.edit_product).place(x=550, y=330)
+        Button(self.win, text="Edit", command=self.edit_product).place(x=80, y=220)
 
-        Button(self.win, text="Remove", command=self.remove_product).place(x=600, y=330)
+        Button(self.win, text="Remove", command=self.remove_product).place(x=140, y=220)
 
         self.table = ttk.Treeview(self.win, columns=(1,2,3,4), show="headings")
 

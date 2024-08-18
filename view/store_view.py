@@ -3,6 +3,7 @@ from controller import *
 from tkinter import *
 import tkinter.messagebox as msg
 import tkinter.ttk as ttk
+from view.transaction_view import TransactionView
 
 from controller.store_controller import StoreController
 from view.component.lable_text import TextWithLabel
@@ -15,6 +16,10 @@ class StoreView:
         if status:
             for store in store_list:
                 self.table.insert("", END, values=(store.product, store.inventory, store.product_id))
+
+    def show_transaction(self):
+        ui = TransactionView()
+        ui.show()
 
 
 

@@ -60,7 +60,7 @@ class PersonView:
     def show(self):
         self.win = Tk()
         self.win.title("person View")
-        self.win.geometry("1100x400")
+        self.win.geometry("700x250")
 
         self.buyer_name = TextWithLabel(self.win, "name: ", 20, 20)
 
@@ -71,14 +71,14 @@ class PersonView:
         self.address = TextWithLabel(self.win, "address: ", 20, 140)
 
 
-        self.remove_row = TextWithLabel(self.win, "ID For Remove :", 320, 280,distance=100)
+        self.remove_row = TextWithLabel(self.win, "ID For Remove :", 20, 260,distance=100)
 
 
-        Button(self.win, text="save", command=self.save_click).place(x=320, y=340)
+        Button(self.win, text="save", command=self.save_click).place(x=20, y=200)
 
-        Button(self.win, text="edit", command=self.edit_person).place(x=380, y=340)
+        Button(self.win, text="edit", command=self.edit_person).place(x=80, y=200)
 
-        Button(self.win, text="remove", command=self.remove_person).place(x=440, y=340)
+        Button(self.win, text="remove", command=self.remove_person).place(x=140, y=200)
 
 
         self.table = ttk.Treeview(self.win, columns=(1,2,3,4), show="headings")
@@ -96,7 +96,7 @@ class PersonView:
         self.table.heading(4, text="address")
 
 
-        self.table.place(x=320,y=20)
+        self.table.place(x=280,y=20)
 
         self.reset_form()
 
